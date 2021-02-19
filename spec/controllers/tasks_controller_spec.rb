@@ -48,6 +48,7 @@ RSpec.describe TasksController, type: :controller do
 
   describe "#destroy" do
     it "destoy a task" do
+      task = create(:task)
       expect{
         delete :destroy, params: {id: task.id }
       }.to change(Task, :count).by -1
