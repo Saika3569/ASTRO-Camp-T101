@@ -1,17 +1,18 @@
 <%= form_with(model: task )do |f| %>
-  <div>
-    <%=f.label :title %>
-    <%=f.text_field :title %>
-  </div>
-  <div>
-    <%=f.label :content %>
-    <%=f.text_field :content %>
-  </div>
-  <div>
-    <%=f.label :priority %>
-    <%=f.text_field :priority %>
-  </div>
-  <div>
-    <%=f.submit %>
-  </div>
+<div>
+  <%=f.label :title %>
+  <%=f.text_field :title %>
+</div>
+<div>
+  <%=f.label :content %>
+  <%=f.text_field :content %>
+</div>
+<div>
+  <%=f.label :priority %>
+  <%=f.text_field :priority %>
+</div>
+<div>
+  <%=f.submit "確認"%>
+</div>
+
 <% end %>
