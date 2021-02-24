@@ -16,7 +16,7 @@ class TasksController < ApplicationController
     # 之後要能修改所屬user
     @task = User.first.tasks.new(task_params)
     if @task.save 
-      redirect_to root_path ,notice: '新增任務'
+      redirect_to root_path ,notice: t('.notice')
     else
       render :new
     end
@@ -27,14 +27,14 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to root_path ,notice: '修改任務' 
+      redirect_to root_path ,notice: t('.notice')
     else
       render :edit
     end
   end
 
   def destroy
-    redirect_to root_path ,notice: '刪除任務' if @task.destroy 
+    redirect_to root_path ,notice: t('.notice') if @task.destroy 
   end
 
   private

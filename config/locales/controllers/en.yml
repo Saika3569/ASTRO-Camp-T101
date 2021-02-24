@@ -1,0 +1,8 @@
+en:
+  tasks:
+    create:
+      notice: "Create Task"
+    update:
+      notice: "Update Task"
+    destroy:
+      notice: "Delete Task"

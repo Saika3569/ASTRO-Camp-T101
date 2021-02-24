@@ -1,18 +1,25 @@
-<%= form_with(model: task )do |f| %>
+<%if task.errors.any? %>
+  <ul>
+    <% task.errors.full_messages.each do |message|%>
+      <li> <%= message %> </li>
+    <%end%>
+  </ul>
+<% end %>
+
+<%= form_for task do |f| %>
 <div>
-  <%=f.label :title %>
+  <%=f.label :title, t('tasks.form.title') %>
   <%=f.text_field :title %>
 </div>
 <div>
-  <%=f.label :content %>
+  <%=f.label :content, t('tasks.form.content') %>
   <%=f.text_field :content %>
 </div>
 <div>
-  <%=f.label :priority %>
+  <%=f.label :priority, t('tasks.form.priority') %>
   <%=f.text_field :priority %>
 </div>
 <div>
-  <%=f.submit "確認"%>
+  <%=f.submit t('tasks.form.submit') %>
 </div>
-
 <% end %>
