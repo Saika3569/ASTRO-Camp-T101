@@ -10,7 +10,9 @@ module Traing
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
-
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
+    config.i18n.default_locale = "zh-TW"
+    config.time_zone = 'Taipei'
     config.generators do |g| 
       g.test_framework :rspec,
           view_specs: false,

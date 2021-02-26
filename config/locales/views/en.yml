@@ -1,0 +1,20 @@
+en:
+  tasks:
+    show:
+      title: "Task detailed"
+    index:
+      title: "Task system"
+      option: "Option"
+    body:
+      new: "New Task"
+      edit: "Edit Task"
+    form:
+      title: "Title"
+      content: "Content"
+      priority: "Priority"
+      submit: "Submit"
+    link:
+      new: "New task"
+      edit: "Edit"
+      delete: "Delete"
+    back: "Return to task list"
