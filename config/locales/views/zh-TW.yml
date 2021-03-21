@@ -17,4 +17,6 @@ zh-TW:
       new: "新增任務"
       edit: "修改"
       delete: "刪除"
+      asc: "升序"
+      desc: "降序"
     back: "回到任務列表"
