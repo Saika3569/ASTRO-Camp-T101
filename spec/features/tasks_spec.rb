@@ -67,7 +67,7 @@ RSpec.feature "Tasks", type: :feature do
       visit root_path
     end
 
-    it "order by asc/desc" do
+    it "with asc/desc" do
       expect(page).to have_content(/title 1.*title 2.*title 3/)
 
       click_link I18n.t('tasks.link.desc')

@@ -17,4 +17,6 @@ en:
       new: "New task"
       edit: "Edit"
       delete: "Delete"
+      asc: "ASC"
+      desc: "DESC"
     back: "Return to task list"
