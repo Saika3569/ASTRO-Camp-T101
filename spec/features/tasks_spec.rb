@@ -5,6 +5,7 @@ RSpec.feature "Tasks", type: :feature do
   let(:task){create(:task)}
   let(:user){create(:user)}
 
+
   context "create a new task" do
     before do
       user
@@ -57,7 +58,27 @@ RSpec.feature "Tasks", type: :feature do
       expect(page).to have_content("#{I18n.t('tasks.destroy.notice')}")
     end
   end
+
+  context "order by created time" do
+    before do
+      1.upto(3) do |i|
+        Task.create(title: "title #{i}", content: "content #{i}", user_id: user.id)
+      end
+      visit root_path
+    end
+
+    it "with asc/desc" do
+      expect(page).to have_content(/title 1.*title 2.*title 3/)
+
+      click_link I18n.t('tasks.link.desc')
+      expect(page).to have_content(/title 3.*title 2.*title 1/)
+
+      click_link I18n.t('tasks.link.asc')
+      expect(page).to have_content(/title 1.*title 2.*title 3/)
+    end
+  end
 end
+
 
 private
   def create_task_with(form, title, content)
