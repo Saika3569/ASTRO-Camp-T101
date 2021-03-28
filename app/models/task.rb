@@ -11,9 +11,8 @@ class Task < ApplicationRecord
 
 
   def task_time
-    byebug
-    if start_at > end_at
-      errors.add(:start_at, I18n.t('activerecord.messages.task_time'))
+    if start_at && end_at
+        errors.add(:start_at, I18n.t('activerecord.messages.task_time'))  if start_at > end_at
     end
   end
 

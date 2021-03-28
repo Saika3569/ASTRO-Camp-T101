@@ -62,12 +62,13 @@ RSpec.feature "Tasks", type: :feature do
   context "order by created time" do
     before do
       1.upto(3) do |i|
-        Task.create(title: "title #{i}", content: "content #{i}", user_id: user.id)
+        create(:task,title: "title #{i}", content: "content #{i}")
       end
       visit root_path
     end
-
+    
     it "with asc/desc" do
+
       expect(page).to have_content(/title 1.*title 2.*title 3/)
 
       click_link I18n.t('tasks.link.desc')
@@ -80,7 +81,7 @@ RSpec.feature "Tasks", type: :feature do
   context "order by end time" do
     before do
       1.upto(3) do |i|
-        Task.create(title: "title #{i}", content: "content #{i}", user_id: user.id)
+        create(:task,title: "title #{i}", end_at: Time.now+ i.day)
       end
       visit root_path
     end
@@ -88,10 +89,10 @@ RSpec.feature "Tasks", type: :feature do
     it "with asc/desc" do
       expect(page).to have_content(/title 1.*title 2.*title 3/)
 
-      click_link I18n.t('tasks.link.desc')
+      click_link I18n.t('tasks.link.tdesc')
       expect(page).to have_content(/title 3.*title 2.*title 1/)
 
-      click_link I18n.t('tasks.link.asc')
+      click_link I18n.t('tasks.link.tasc')
       expect(page).to have_content(/title 1.*title 2.*title 3/)
     end
   end
