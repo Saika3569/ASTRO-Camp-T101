@@ -1,6 +1,10 @@
 en:
   activerecord:
+    messages:
+      task_time: "must early than end time"
     attributes:
       task:
         title: "Title"
         content: "Content"
+        start_at: "Start time"
+        end_at: "End time"

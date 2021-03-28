@@ -1,6 +1,10 @@
 zh-TW:
   activerecord:
+    messages:
+      task_time: "必須早於結束時間"
     attributes:
       task:
         title: "標題"
         content: "內容"
+        start_at: "開始時間"
+        end_at: "結束時間"

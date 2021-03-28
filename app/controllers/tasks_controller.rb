@@ -4,6 +4,8 @@ class TasksController < ApplicationController
   def index
     if params[:order]
       @tasks = Task.with_order(params[:order])
+    elsif params[:end_at]
+      @tasks = Task.with_end(params[:end_at])
     else 
       @tasks = Task.with_order
     end
@@ -43,7 +45,7 @@ class TasksController < ApplicationController
 
   private
   def task_params
-    params.require(:task).permit(:title, :content, :priority)
+    params.require(:task).permit(:title, :content, :priority,:start_at, :end_at)
   end
 
   def set_task

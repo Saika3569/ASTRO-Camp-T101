@@ -16,6 +16,14 @@
   <%=f.text_field :content %>
 </div>
 <div>
+  <%=f.label :start_at, t('tasks.form.start_at') %>
+  <%=f.date_select :start_at %>
+</div>
+<div>
+  <%=f.label :end_at, t('tasks.form.end_at') %>
+  <%=f.date_select :end_at %>
+</div>
+<div>
   <%=f.label :priority, t('tasks.form.priority') %>
   <%=f.text_field :priority %>
 </div>
