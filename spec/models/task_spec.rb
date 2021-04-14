@@ -2,11 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Task, type: :model do
   describe 'associations' do
-    it 'belongs to user' do
-      user = create(:user)
-      task = create(:task, user: user)
-      expect(task.user).to eq(user)
-    end
+    it { should belong_to(:user).class_name('User') }
   end
 
   describe 'validations' do
@@ -19,10 +15,9 @@ RSpec.describe Task, type: :model do
   end
   
   describe 'task time' do
+    let(:task){build(:task, start_at: Date.today + 1.day, end_at: Date.today)}
     it "start time before end time" do
-      task = build(:task, :invalidtime)
       task.valid?
-      # byebug
       expect( task.errors.full_messages ).to eq(["開始時間 必須早於結束時間"])
     end
   end

@@ -9,11 +9,5 @@ FactoryBot.define do
     trait :invalid do 
       title { nil }
     end
-
-    trait :invalidtime do
-      start_at {Date.today + 1.day}
-      end_at {Date.today }
-    end
-
   end
 end

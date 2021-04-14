@@ -6,8 +6,8 @@ class Task < ApplicationRecord
   validates :end_at , presence: true
   validate :task_time
 
-  scope :with_order, ->(order =:asc) {order(created_at: order) }
-  scope :with_end, ->(order =:asc) {order(end_at: order) }
+  scope :order_by_created_at, ->(order =:asc) {order(created_at: order) }
+  scope :order_by_end_at, ->(order =:asc) {order(end_at: order) }
 
 
   def task_time

@@ -1,7 +1,7 @@
 <h1> <%= t('tasks.index.title')%> </h1>
 <%= link_to t('tasks.link.new'), new_task_path %>
-<%= link_to t('tasks.link.asc'), tasks_path(order: :asc) %>
-<%= link_to t('tasks.link.desc'), tasks_path(order: :desc) %>
+<%= link_to t('tasks.link.asc'), tasks_path(create_at: :asc) %>
+<%= link_to t('tasks.link.desc'), tasks_path(create_at: :desc) %>
 <%= link_to t('tasks.link.tasc'), tasks_path(end_at: :asc) %>
 <%= link_to t('tasks.link.tdesc'), tasks_path(end_at: :desc) %>
 <table>

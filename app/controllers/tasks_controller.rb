@@ -3,11 +3,11 @@ class TasksController < ApplicationController
 
   def index
     if params[:order]
-      @tasks = Task.with_order(params[:order])
+      @tasks = Task.order_by_created_at(params[:created_at])
     elsif params[:end_at]
-      @tasks = Task.with_end(params[:end_at])
+      @tasks = Task.order_by_end_at(params[:end_at])
     else 
-      @tasks = Task.with_order
+      @tasks = Task.order_by_created_at
     end
   end
   
