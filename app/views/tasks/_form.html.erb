@@ -24,6 +24,10 @@
   <%=f.date_select :end_at %>
 </div>
 <div>
+  <%=f.label :state, t('tasks.form.state') %>
+  <%=f.select :state, Task.aasm.states_for_select %>
+</div>
+<div>
   <%=f.label :priority, t('tasks.form.priority') %>
   <%=f.text_field :priority %>
 </div>

@@ -14,6 +14,7 @@ en:
       start_at: "Start time"
       end_at: "End time"
       priority: "Priority"
+      state: "State"
       submit: "Submit"
     link:
       new: "New task"

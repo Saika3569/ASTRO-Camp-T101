@@ -8,3 +8,7 @@ en:
         content: "Content"
         start_at: "Start time"
         end_at: "End time"
+        state:
+          pending: "Pedding"
+          progressing: "Progressing"
+          finish: "Finish"

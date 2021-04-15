@@ -8,3 +8,7 @@ zh-TW:
         content: "內容"
         start_at: "開始時間"
         end_at: "結束時間"
+        state:
+          pending: "待處理"
+          progressing: "進行中"
+          finish: "完成"
