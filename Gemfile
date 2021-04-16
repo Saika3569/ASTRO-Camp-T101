@@ -19,6 +19,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'rails-i18n', '~> 6.0.0'
 gem 'aasm', '~> 4.11'
+gem 'ransack'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'

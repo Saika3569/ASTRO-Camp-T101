@@ -2,13 +2,8 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy, :pend, :progress, :finish]
 
   def index
-    if params[:created_at]
-      @tasks = Task.order_by_created_at(params[:created_at])
-    elsif params[:end_at]
-      @tasks = Task.order_by_end_at(params[:end_at])
-    else 
-      @tasks = Task.order_by_created_at
-    end
+    @q = Task.ransack(params[:q])
+    @tasks = @q.result(distinct: true)
   end
   
   def show

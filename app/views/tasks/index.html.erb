@@ -1,15 +1,19 @@
 <h1> <%= t('tasks.index.title')%> </h1>
 <%= link_to t('tasks.link.new'), new_task_path %>
-<%= link_to t('tasks.link.asc'), tasks_path(created_at: :asc) %>
-<%= link_to t('tasks.link.desc'), tasks_path(created_at: :desc) %>
-<%= link_to t('tasks.link.tasc'), tasks_path(end_at: :asc) %>
-<%= link_to t('tasks.link.tdesc'), tasks_path(end_at: :desc) %>
+<%= sort_link(@q, :created_at, t('tasks.link.created_at'),  default_order: :desc) %>
+
+<%= search_form_for @q do |f| %>
+  <%= f.search_field :title_cont, placeholder: '輸入標題搜尋' %>
+  <%= f.select :state_eq, Task.aasm.states_for_select, prompt: '選擇狀態搜尋' %>
+  <%= f.submit %>
+<% end %>
+
 <table>
   <thead>
     <tr>
       <td> <%= t('tasks.form.title')%> </td>
       <td> <%= t('tasks.form.start_at')%> </td>
-      <td> <%= t('tasks.form.end_at')%> </td>
+      <td> <%= sort_link(@q, :end_at) %> </td>
       <td> <%= t('tasks.form.state')%> </td>
       <td> <%= t('tasks.index.option')%> </td>
     </tr>
