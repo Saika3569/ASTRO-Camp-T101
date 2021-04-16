@@ -24,4 +24,7 @@ zh-TW:
       desc: "創建降序"
       tasc: "結束升序"
       tdesc: "結束降序"
-    back: "回到任務列表"
+      pending: "待處理"
+      progressing: "進行中"
+      finish: "完成"
+      back: "回到任務列表"

@@ -19,7 +19,7 @@ class Task < ApplicationRecord
     end
   end
 
-  aasm column: "state" do
+  aasm column: 'state', no_direct_assignment: true do
     state :pending, :initial => true
     state :progressing
     state :finish

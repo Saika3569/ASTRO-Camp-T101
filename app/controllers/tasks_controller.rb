@@ -1,8 +1,8 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_task, only: [:show, :edit, :update, :destroy, :pend, :progress, :finish]
 
   def index
-    if params[:order]
+    if params[:created_at]
       @tasks = Task.order_by_created_at(params[:created_at])
     elsif params[:end_at]
       @tasks = Task.order_by_end_at(params[:end_at])
@@ -41,6 +41,21 @@ class TasksController < ApplicationController
 
   def destroy
     redirect_to root_path ,notice: t('.notice') if @task.destroy 
+  end
+
+  def pend
+    @task.pend!
+    redirect_to root_path 
+  end
+
+  def progress
+    @task.progress!
+    redirect_to root_path 
+  end
+
+  def finish
+    @task.finish!
+    redirect_to root_path 
   end
 
   private

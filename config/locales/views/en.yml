@@ -24,4 +24,7 @@ en:
       desc: "DESC by Created at"
       tasc: "ASC by End time"
       tdesc: "DESC by End time"
+      pending: "Pending"
+      progressing: "Progressing"
+      finish: "Finish"
       back: "Return to task list"
