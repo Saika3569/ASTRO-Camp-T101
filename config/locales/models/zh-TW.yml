@@ -12,6 +12,7 @@ zh-TW:
         content: "內容"
         start_at: "開始時間"
         end_at: "結束時間"
+        priority: "優先度"
         state:
           pending: "待處理"
           progressing: "進行中"

@@ -12,6 +12,7 @@ en:
         content: "Content"
         start_at: "Start time"
         end_at: "End time"
+        priority: "Priority"
         state:
           pending: "Pedding"
           progressing: "Progressing"

@@ -96,29 +96,49 @@ end
       expect(page).to have_content(/title 1.*title 2.*title 3/)
     end
   end
-end
 
-context "search" do
-  before do
-    1.upto(3) do |i|
-        create(:task,title: "title#{i}")
+  context "order by end priority" do
+    before do
+      create(:task,title: "title 1", priority: 0)
+      create(:task,title: "title 2", priority: 1)
+      visit root_path
     end
-    visit root_path
+
+    it "with asc/desc" do
+      expect(page).to have_content(/title 1.*title 2/)
+
+      click_link '優先度'
+      expect(page).to have_content(/title 1.*title 2/)
+
+      click_link '優先度'
+      expect(page).to have_content(/title 2.*title 1/)
+    end
   end
 
-  it 'search by state' do
-    select('進行中',from: 'q[state_eq]') 
-    click_button '搜尋'
-    expect(page).to have_content '進行中'
-  end
+  context "search" do
+    before do
+      1.upto(3) do |i|
+          create(:task,title: "title#{i}")
+      end
+      visit root_path
+    end
 
-  it 'search by title' do
-    fill_in '輸入標題搜尋' , with: 'title'
-    click_button '搜尋'
-    expect(page).to have_content 'title2'
+    it 'search by state' do
+      select('進行中',from: 'q[state_eq]') 
+      click_button '搜尋'
+      expect(page).to have_content '進行中'
+    end
+
+    it 'search by title' do
+      fill_in '輸入標題搜尋' , with: 'title'
+      click_button '搜尋'
+      expect(page).to have_content 'title2'
+    end
   end
 
 end
+
+
 
 private
   def create_task_with(form, title, content)
