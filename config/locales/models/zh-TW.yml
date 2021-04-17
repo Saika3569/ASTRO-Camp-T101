@@ -3,6 +3,10 @@ zh-TW:
     messages:
       task_time: "必須早於結束時間"
     attributes:
+      task/priority:
+        high: "高"
+        mid: "中"
+        low: "低"
       task:
         title: "標題"
         content: "內容"

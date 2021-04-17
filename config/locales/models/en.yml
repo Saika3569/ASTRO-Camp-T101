@@ -3,6 +3,10 @@ en:
     messages:
       task_time: "must early than end time"
     attributes:
+      task/priority:
+        high: "High"
+        mid: "Mid"
+        low: "Low"
       task:
         title: "Title"
         content: "Content"

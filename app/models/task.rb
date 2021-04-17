@@ -1,6 +1,6 @@
 class Task < ApplicationRecord
   include AASM
-
+  enum priority: {high: 0, mid: 1, low: 2}
   belongs_to :user
   validates :title, presence: true, uniqueness: {scope: :user_id}
   validates :content , presence: true
@@ -9,7 +9,7 @@ class Task < ApplicationRecord
   validate :task_time
 
   default_scope {order(created_at: 'asc')}
-  
+
   def task_time
     if start_at && end_at
         errors.add(:start_at, I18n.t('activerecord.messages.task_time'))  if start_at > end_at

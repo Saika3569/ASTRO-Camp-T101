@@ -13,7 +13,7 @@ zh-TW:
       content: "內容"
       start_at: "開始時間"
       end_at: "結束時間"
-      priority: "優先"
+      priority: "優先度"
       state: "狀態"
       submit: "確認"
     link:
