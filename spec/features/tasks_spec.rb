@@ -44,7 +44,7 @@ RSpec.feature "Tasks", type: :feature do
       expect(page).to have_content new_title
     end
 
-  end
+end 
 
   context "delete a task " do
     before do
@@ -71,10 +71,10 @@ RSpec.feature "Tasks", type: :feature do
 
       expect(page).to have_content(/title 1.*title 2.*title 3/)
 
-      click_link I18n.t('tasks.link.desc')
+      click_link '創建時間'
       expect(page).to have_content(/title 3.*title 2.*title 1/)
 
-      click_link I18n.t('tasks.link.asc')
+      click_link '創建時間'
       expect(page).to have_content(/title 1.*title 2.*title 3/)
     end
   end
@@ -89,15 +89,36 @@ RSpec.feature "Tasks", type: :feature do
     it "with asc/desc" do
       expect(page).to have_content(/title 1.*title 2.*title 3/)
 
-      click_link I18n.t('tasks.link.tdesc')
+      click_link '結束時間'
       expect(page).to have_content(/title 3.*title 2.*title 1/)
 
-      click_link I18n.t('tasks.link.tasc')
+      click_link '結束時間'
       expect(page).to have_content(/title 1.*title 2.*title 3/)
     end
   end
 end
 
+context "search" do
+  before do
+    1.upto(3) do |i|
+        create(:task,title: "title#{i}")
+    end
+    visit root_path
+  end
+
+  it 'search by state' do
+    select('進行中',from: 'q[state_eq]') 
+    click_button '搜尋'
+    expect(page).to have_content '進行中'
+  end
+
+  it 'search by title' do
+    fill_in '輸入標題搜尋' , with: 'title'
+    click_button '搜尋'
+    expect(page).to have_content 'title2'
+  end
+
+end
 
 private
   def create_task_with(form, title, content)
