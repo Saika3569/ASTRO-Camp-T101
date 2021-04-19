@@ -1,5 +1,6 @@
 en:
   tasks:
+    local: "Language"
     show:
       title: "Task detailed"
     index:
@@ -18,6 +19,7 @@ en:
       state: "State"
       submit: "Submit"
     link:
+      main: "Task system"
       new: "New task"
       edit: "Edit"
       delete: "Delete"

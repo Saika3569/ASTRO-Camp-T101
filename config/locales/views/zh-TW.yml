@@ -7,6 +7,7 @@ zh-TW:
       previous: "&lsaquo; 上一頁"
       truncate: "&hellip;"
   tasks:
+    local: "語言"
     show:
       title: "任務詳細"
     index:
@@ -25,6 +26,7 @@ zh-TW:
       state: "狀態"
       submit: "確認"
     link:
+      main: "任務系統"
       new: "新增任務"
       edit: "修改"
       delete: "刪除"

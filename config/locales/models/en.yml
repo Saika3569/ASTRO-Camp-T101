@@ -1,5 +1,16 @@
 en:
   activerecord:
+    attributes:
+      task:
+        title: "Title"
+        content: "Content"
+        start_at: "Start time"
+        end_at: "End time"
+        priority: "Priority"
+        state: "State"
+        state/pending: "Pedding"
+        state/progressing: "Progressing"
+        state/finish: "Finish"
     messages:
       task_time: "must early than end time"
   enums:
@@ -8,13 +19,3 @@ en:
         high: "High"
         mid: "Mid"
         low: "Low"
-      task:
-        title: "Title"
-        content: "Content"
-        start_at: "Start time"
-        end_at: "End time"
-        priority: "Priority"
-        state:
-          pending: "Pedding"
-          progressing: "Progressing"
-          finish: "Finish"
