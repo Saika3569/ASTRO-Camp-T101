@@ -4,3 +4,18 @@ en:
       task:
         title: "Title"
         content: "Content"
+        start_at: "Start time"
+        end_at: "End time"
+        priority: "Priority"
+        state: "State"
+        state/pending: "Pedding"
+        state/progressing: "Progressing"
+        state/finish: "Finish"
+    messages:
+      task_time: "must early than end time"
+  enums:
+    task:
+      priority:
+        high: "High"
+        mid: "Mid"
+        low: "Low"

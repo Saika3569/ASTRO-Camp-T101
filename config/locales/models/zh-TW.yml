@@ -4,3 +4,18 @@ zh-TW:
       task:
         title: "標題"
         content: "內容"
+        start_at: "開始時間"
+        end_at: "結束時間"
+        priority: "優先度"
+        state: "狀態"
+        state/pending: "待處理"
+        state/progressing: "進行中"
+        state/finish: "完成"
+    messages:
+      task_time: "必須早於結束時間"
+  enums:
+    task:
+      priority:
+        high: "高"
+        mid: "中"
+        low: "低"

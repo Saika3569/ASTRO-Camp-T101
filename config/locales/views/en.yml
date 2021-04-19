@@ -1,22 +1,30 @@
 en:
   tasks:
+    local: "Language"
     show:
       title: "Task detailed"
     index:
       title: "Task system"
       option: "Option"
+      state: "Change State"
     body:
       new: "New Task"
       edit: "Edit Task"
     form:
       title: "Title"
       content: "Content"
+      start_at: "Start time"
+      end_at: "End time"
       priority: "Priority"
+      state: "State"
       submit: "Submit"
     link:
+      main: "Task system"
       new: "New task"
       edit: "Edit"
       delete: "Delete"
-      asc: "ASC"
-      desc: "DESC"
-    back: "Return to task list"
+      pending: "Pending"
+      progressing: "Progressing"
+      finish: "Finish"
+      created_at: "Created_at"
+      back: "Return to task list"

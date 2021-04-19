@@ -1,22 +1,37 @@
 zh-TW:
+  views:
+    pagination:
+      first: "&laquo; 首頁"
+      last: "末頁 &raquo;"
+      next: "下一頁 &rsaquo;"
+      previous: "&lsaquo; 上一頁"
+      truncate: "&hellip;"
   tasks:
+    local: "語言"
     show:
       title: "任務詳細"
     index:
       title: "任務系統"
       option: "選項"
+      state: "修改狀態"
     body:
       new: "新增任務"
       edit: "修改任務"
     form:
       title: "標題"
       content: "內容"
-      priority: "優先"
+      start_at: "開始時間"
+      end_at: "結束時間"
+      priority: "優先度"
+      state: "狀態"
       submit: "確認"
     link:
+      main: "任務系統"
       new: "新增任務"
       edit: "修改"
       delete: "刪除"
-      asc: "升序"
-      desc: "降序"
-    back: "回到任務列表"
+      pending: "待處理"
+      progressing: "進行中"
+      finish: "完成"
+      created_at: "創建時間"
+      back: "回到任務列表"

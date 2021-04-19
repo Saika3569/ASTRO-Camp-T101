@@ -17,6 +17,9 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 gem 'rails-i18n', '~> 6.0.0'
+gem 'aasm', '~> 4.11'
+gem 'ransack'
+gem 'kaminari'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -27,6 +30,7 @@ gem 'rails-i18n', '~> 6.0.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'pg', '>= 0.18', '< 2.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -38,7 +42,7 @@ group :development, :test do
 end
 
 group :production do
-  gem 'pg', '>= 0.18', '< 2.0'
+
 end
 
 group :development do
