@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
   resources :tasks do
     member do
-      patch :pend
-      patch :progress
-      patch :finish
+      patch :update_state
     end
   end
 

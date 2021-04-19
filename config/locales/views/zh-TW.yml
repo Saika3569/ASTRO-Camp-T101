@@ -12,6 +12,7 @@ zh-TW:
     index:
       title: "任務系統"
       option: "選項"
+      state: "修改狀態"
     body:
       new: "新增任務"
       edit: "修改任務"

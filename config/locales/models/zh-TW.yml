@@ -2,8 +2,9 @@ zh-TW:
   activerecord:
     messages:
       task_time: "必須早於結束時間"
-    attributes:
-      task/priority:
+  enums:
+    task:
+      priority:
         high: "高"
         mid: "中"
         low: "低"

@@ -2,8 +2,9 @@ en:
   activerecord:
     messages:
       task_time: "must early than end time"
-    attributes:
-      task/priority:
+  enums:
+    task:
+      priority:
         high: "High"
         mid: "Mid"
         low: "Low"

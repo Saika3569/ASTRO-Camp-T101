@@ -5,6 +5,7 @@ en:
     index:
       title: "Task system"
       option: "Option"
+      state: "Change State"
     body:
       new: "New Task"
       edit: "Edit Task"

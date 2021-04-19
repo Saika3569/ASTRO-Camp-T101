@@ -1,6 +1,8 @@
+<div class="container">
+
 <h1> <%= t('tasks.index.title')%> </h1>
 <%= link_to t('tasks.link.new'), new_task_path %>
-<%= sort_link(@q, :created_at, t('tasks.link.created_at'),  default_order: :desc) %>
+
 
 <%= search_form_for @q do |f| %>
   <%= f.search_field :title_cont, placeholder: '輸入標題搜尋' %>
@@ -8,13 +10,14 @@
   <%= f.submit %>
 <% end %>
 
-<table>
+<table class="table text-center">
   <thead>
     <tr>
       <td> <%= t('tasks.form.title')%> </td>
       <td> <%= t('tasks.form.start_at')%> </td>
       <td> <%= sort_link(@q, :end_at, default_order: :desc) %> </td>
       <td> <%= t('tasks.form.state')%> </td>
+      <td> <%= t('.state')%> </td>
       <td> <%= sort_link(@q, :priority, default_order: :asc) %>  </td>
       <td> <%= t('tasks.index.option')%> </td>
     </tr>
@@ -26,21 +29,26 @@
         <td><%= task.start_at&.strftime("%Y/%m/%d") %></td>
         <td><%= task.end_at&.strftime("%Y/%m/%d") %></td>
         <td><%= task.aasm.human_state %></td>
-        <td><%= enum_display(task, :priority) %></td>
         <td>
-          <%= link_to t('tasks.link.pending'), pend_task_path(task), method: 'patch' if task.may_pend? %>
-          <%= link_to t('tasks.link.progressing'), progress_task_path(task),method: 'patch' if task.may_progress? %>
-          <%= link_to t('tasks.link.finish'), finish_task_path(task), method: 'patch' if task.may_finish?%>
+          <%= link_to t('tasks.link.pending'),update_state_task_path(task,state: 'pend'), method: 'patch' if task.may_pend? %>
+          <%= link_to t('tasks.link.progressing'),update_state_task_path(task,state: 'progress'),method: 'patch' if task.may_progress? %>
+          <%= link_to t('tasks.link.finish'), update_state_task_path(task,state:'finish'), method: 'patch' if task.may_finish?%>
         </td>
-        <td><%= link_to t('tasks.link.edit'), edit_task_path(task) %></td>
-        <td> <%= link_to t('tasks.link.delete'),task_path(task), method:'delete' %></td>
+        <td><%= get_priority(task.priority) %></td>
+        <td>
+          <%= link_to t('tasks.link.edit'), edit_task_path(task) %>
+          <%= link_to t('tasks.link.delete'),task_path(task), method:'delete' %>
+        </td>
+
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<%= paginate @tasks %>
-
-  
+  <div class="row">
+    <div class="col-6 mx-auto">
+      <%= paginate @tasks %>
+    </div>
+  </div>
+</div>
 
 

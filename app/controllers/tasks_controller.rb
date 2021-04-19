@@ -1,9 +1,9 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy, :pend, :progress, :finish]
+  before_action :set_task, only: [:show, :edit, :update, :destroy, :update_state]
 
   def index
     @q = Task.ransack(params[:q])
-    @tasks = @q.result(distinct: true).page(params[:page]).per(1)
+    @tasks = @q.result(distinct: true).page(params[:page]).per(5)
   end
   
   def show
@@ -38,19 +38,18 @@ class TasksController < ApplicationController
     redirect_to root_path ,notice: t('.notice') if @task.destroy 
   end
 
-  def pend
-    @task.pend!
-    redirect_to root_path 
-  end
-
-  def progress
-    @task.progress!
-    redirect_to root_path 
-  end
-
-  def finish
-    @task.finish!
-    redirect_to root_path 
+  def  update_state
+    case params[:state]
+    when 'pend'
+      @task.pend!
+      redirect_to root_path 
+    when 'progress'
+      @task.progress!
+      redirect_to root_path 
+    when 'finish'
+      @task.finish!
+      redirect_to root_path 
+    end
   end
 
   private

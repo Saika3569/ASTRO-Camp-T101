@@ -25,7 +25,7 @@
 </div>
 <div>
   <%=f.label :priority, t('tasks.form.priority') %>
-  <%=f.select :priority,enum_options_for_select(Task,:priority) %>
+  <%=f.select :priority ,Task.priorities.keys.map {|priority| [I18n.t("enums.task.priority.#{priority}"),priority]} %>
 </div>
 <div>
   <%=f.submit t('tasks.form.submit') %>
