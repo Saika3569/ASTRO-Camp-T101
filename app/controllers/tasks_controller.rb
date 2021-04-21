@@ -38,18 +38,10 @@ class TasksController < ApplicationController
     redirect_to root_path ,notice: t('.notice') if @task.destroy 
   end
 
-  def  update_state
-    case params[:state]
-    when 'pend'
-      @task.pend!
-      redirect_to root_path 
-    when 'progress'
-      @task.progress!
-      redirect_to root_path 
-    when 'finish'
-      @task.finish!
-      redirect_to root_path 
-    end
+  def update_state
+    @task.send(params[:state])
+    @task.save
+    redirect_to root_path 
   end
 
   private

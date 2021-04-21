@@ -7,6 +7,9 @@ en:
       title: "Task system"
       option: "Option"
       state: "Change State"
+      search:
+        title: "Search by title"
+        state: "Search by state"
     body:
       new: "New Task"
       edit: "Edit Task"
