@@ -1,0 +1,33 @@
+<div class="w-50 mx-auto">
+  <h1> <%= t('users.form.sign_in') %> </h1>
+
+  <%if user.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <ul class="list-group">
+      <% user.errors.full_messages.each do |message|%>
+        <li class="list-group-item"> <%= message %> </li>
+      <%end%>
+    </ul>
+  </div>
+<% end %>
+
+
+  <%= form_for user,url: sign_in_users_path do |f| %>
+    <div class='mb-3'>
+      <%=f.label :account,t('users.form.account'), class:'form-label' %>
+      <%=f.text_field :account, class:'form-control'%>
+    </div>
+    <div class='mb-3'>
+      <%=f.label :password, t('users.form.password'), class:'form-label' %>
+      <%=f.password_field :password, class:'form-control' %>
+    </div>
+    <div>
+      <%=f.submit t('tasks.form.submit'), class:'btn btn-outline-primary' %>
+    </div>
+  <% end %>
+
+  <nav class="nav mx-auto w-25">
+    <%= link_to t('tasks.link.back'), root_path , class:"nav-link" %>
+  </nav>
+
+</div>

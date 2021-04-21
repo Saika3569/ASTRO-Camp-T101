@@ -40,7 +40,7 @@ RSpec.describe TasksController, type: :controller do
 
   describe "#update" do
     it "edit a task" do
-      task_params = attributes_for(:task,title: 'asdf')
+      task_params = attributes_for(:task,title: 'asdf',priority: 'low')
       patch :update, params: {id: task.id, task: task_params }
       expect(task.reload.title).to eq "asdf"
     end

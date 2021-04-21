@@ -2,8 +2,8 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy, :update_state]
 
   def index
-    @q = Task.ransack(params[:q])
-    @tasks = @q.result(distinct: true).page(params[:page]).per(5)
+    @q = current_user.tasks.ransack(params[:q])
+    @tasks = @q.result(distinct: true).includes(:user).page(params[:page]).per(5)
   end
   
   def show
@@ -14,8 +14,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    # 之後要能修改所屬user
-    @task = User.first.tasks.new(task_params)
+    @task = current_user.tasks.new(task_params)
     if @task.save 
       redirect_to root_path ,notice: t('.notice')
     else

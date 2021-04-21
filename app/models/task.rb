@@ -6,6 +6,7 @@ class Task < ApplicationRecord
   validates :content , presence: true
   validates :start_at , presence: true
   validates :end_at , presence: true
+  validates :priority , presence: true
   validate :task_time
 
   default_scope {order(created_at: 'asc')}

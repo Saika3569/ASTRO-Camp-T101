@@ -5,6 +5,7 @@ FactoryBot.define do
     content { "give up" }
     start_at {Time.now}
     end_at {Time.now+ 1.day}
+    priority {rand 0..2}
 
     trait :invalid do 
       title { nil }

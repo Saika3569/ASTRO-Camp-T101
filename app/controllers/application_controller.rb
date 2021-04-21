@@ -1,6 +1,13 @@
 class ApplicationController < ActionController::Base
-  before_action :set_locale
+  include SessionsHelper
+  
+  before_action :set_locale, :check_session
 
+
+
+  def check_session 
+    redirect_to sign_in_users_path if not session[:user114514]
+  end
 
   def set_locale
     if params[:locale] && I18n.available_locales.include?( params[:locale].to_sym )
