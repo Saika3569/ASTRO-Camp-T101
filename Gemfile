@@ -39,6 +39,7 @@ group :development, :test do
   gem "factory_bot_rails", '~>6.1.0'
   gem "rails-controller-testing", '~>1.0.5'
   gem 'faker', '~> 2.15', '>= 2.15.1'
+  gem 'travis' 
 end
 
 group :production do

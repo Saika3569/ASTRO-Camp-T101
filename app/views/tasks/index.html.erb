@@ -5,9 +5,9 @@
 
 <%= search_form_for @q, html:{class:'mb-3'} do |f| %>
   <%= f.label :title_cont, t('tasks.form.title') %>
-  <%= f.search_field :title_cont, placeholder: '輸入標題搜尋' %>
+  <%= f.search_field :title_cont, placeholder: t('tasks.index.search.title') %>
   <%= f.label :state_eq, t('tasks.form.state')%>
-  <%= f.select :state_eq, Task.aasm.states_for_select, prompt: '選擇狀態搜尋',class:'form-select' %>
+  <%= f.select :state_eq, Task.aasm.states_for_select, prompt: t('tasks.index.search.state'),class:'form-select' %>
   <%= f.submit %>
 <% end %>
 

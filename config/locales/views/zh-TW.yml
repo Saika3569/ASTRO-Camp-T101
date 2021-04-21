@@ -14,6 +14,9 @@ zh-TW:
       title: "任務系統"
       option: "選項"
       state: "修改狀態"
+      search:
+        title: "輸入標題搜尋"
+        state: "選擇狀態搜尋"
     body:
       new: "新增任務"
       edit: "修改任務"

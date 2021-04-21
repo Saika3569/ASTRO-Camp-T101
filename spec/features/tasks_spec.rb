@@ -36,7 +36,7 @@ RSpec.feature "Tasks", type: :feature do
 
     before do
       task
-      edit_task_with('.edit_task',new_title,new_content)
+      edit_task_with("#edit_task_#{task.id}",new_title,new_content)
     end
 
     it "should be edited" do
@@ -59,25 +59,6 @@ end
     end
   end
 
-  context "order by created time" do
-    before do
-      1.upto(3) do |i|
-        create(:task,title: "title #{i}", content: "content #{i}")
-      end
-      visit root_path
-    end
-    
-    it "with asc/desc" do
-
-      expect(page).to have_content(/title 1.*title 2.*title 3/)
-
-      click_link '創建時間'
-      expect(page).to have_content(/title 3.*title 2.*title 1/)
-
-      click_link '創建時間'
-      expect(page).to have_content(/title 1.*title 2.*title 3/)
-    end
-  end
   context "order by end time" do
     before do
       1.upto(3) do |i|
