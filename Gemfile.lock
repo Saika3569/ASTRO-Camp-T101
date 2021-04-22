@@ -309,6 +309,7 @@ DEPENDENCIES
   faker (~> 2.15, >= 2.15.1)
   jbuilder (~> 2.7)
   kaminari
+  launchy
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
   puma (~> 4.1)
