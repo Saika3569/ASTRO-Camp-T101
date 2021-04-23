@@ -12,7 +12,7 @@ zh-TW:
       edit: "修改使用者"
     form:
       name: "暱稱"
-      account: "帳號"
+      email: "信箱"
       password: "密碼"
       registration: "註冊"
       sign_in: "登入"

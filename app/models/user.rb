@@ -1,7 +1,7 @@
 class User < ApplicationRecord
 
   has_many :tasks, dependent: :destroy
-  validates :account, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true , format:  /\A[^@]+@[^@]+\z/
   validates :password, confirmation: true
   has_secure_password 
 

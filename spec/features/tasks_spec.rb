@@ -6,7 +6,7 @@ RSpec.feature "Tasks", type: :feature do
 
   before do
     visit sign_in_users_path
-    fill_in "帳號", with: user.account
+    fill_in "信箱", with: user.email
     fill_in "密碼", with: user.password
     click_button '確認'
   end

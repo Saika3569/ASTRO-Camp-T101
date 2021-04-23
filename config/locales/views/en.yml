@@ -5,7 +5,7 @@ en:
       edit: "Edit User"
     form:
       name: "Name"
-      account: "Account"
+      email: "Email"
       password: "Password"
       confirmation_password: "Confirm Password"
       registration: "Registration"
