@@ -2,7 +2,7 @@ class Admin::UsersController < ApplicationController
   before_action :find_user, only: [:edit, :update, :show, :destroy]
 
   def index
-    @users = User.all.page(params[:page]).per(5)
+    @users = User.all.includes(:tasks).page(params[:page]).per(5)
   end
 
   def new

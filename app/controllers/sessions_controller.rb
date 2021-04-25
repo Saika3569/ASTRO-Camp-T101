@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       session[:user114514] = @user.id
       redirect_to root_path, notice: t('.notice')
     else
-      redirect_to sign_in_users_path
+      redirect_to sign_in_users_path, notice: t('.fail')
     end
   end
 

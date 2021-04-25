@@ -14,6 +14,7 @@ en:
   sessions:
     create:
       notice: "Log in Success"
+      fail: "Log in Fail"
     destroy:
       notice: "Log out Success"
   admin:
