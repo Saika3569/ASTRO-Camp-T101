@@ -14,5 +14,14 @@ en:
   sessions:
     create:
       notice: "Log in Success"
+      fail: "Log in Fail"
     destroy:
       notice: "Log out Success"
+  admin:
+    users:
+      create:
+        notice: "Create User"
+      update:
+        notice: "Update User"
+      destroy:
+        notice: "Delete User"

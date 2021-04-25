@@ -3,6 +3,7 @@ en:
     body:
       new: "New User"
       edit: "Edit User"
+      count: "Task Count"
     form:
       name: "Name"
       email: "Email"
@@ -42,4 +43,4 @@ en:
       progressing: "Progressing"
       finish: "Finish"
       created_at: "Created_at"
-      back: "Return to task list"
+      back: "Return to Home page"
