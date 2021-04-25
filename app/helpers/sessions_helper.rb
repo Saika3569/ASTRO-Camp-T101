@@ -5,4 +5,5 @@ module SessionsHelper
 
   def user_sign_in?
     current_user
+  end
 end

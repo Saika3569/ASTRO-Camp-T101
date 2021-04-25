@@ -10,6 +10,7 @@ zh-TW:
     body:
       new: "新增使用者"
       edit: "修改使用者"
+      count: "任務數量"
     form:
       name: "暱稱"
       email: "信箱"
@@ -49,4 +50,4 @@ zh-TW:
       progressing: "進行中"
       finish: "完成"
       created_at: "創建時間"
-      back: "回到任務列表"
+      back: "回到首頁"

@@ -16,3 +16,11 @@ en:
       notice: "Log in Success"
     destroy:
       notice: "Log out Success"
+  admin:
+    users:
+      create:
+        notice: "Create User"
+      update:
+        notice: "Update User"
+      destroy:
+        notice: "Delete User"

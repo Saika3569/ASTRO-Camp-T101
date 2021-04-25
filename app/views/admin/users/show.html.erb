@@ -1,9 +1,6 @@
 <div class="container">
 
-<%= link_to t('tasks.link.new'), new_task_path,class: 'btn btn-primary btn-lg my-3' %>
-
-
-<%= search_form_for @q, html:{class:'mb-3'} do |f| %>
+<%= search_form_for @q, html:{class:'my-3'} do |f| %>
   <%= f.label :title_cont, t('tasks.form.title') %>
   <%= f.search_field :title_cont, placeholder: t('tasks.index.search.title') %>
   <%= f.label :state_eq, t('tasks.form.state')%>
@@ -20,7 +17,6 @@
       <td> <%= t('tasks.form.state')%> </td>
       <td> <%= t('.state')%> </td>
       <td> <%= sort_link(@q, :priority, default_order: :asc) %>  </td>
-      <td> <%= t('tasks.index.option')%> </td>
     </tr>
   </thead>
   <tbody>
@@ -36,10 +32,6 @@
           <%= link_to t('tasks.link.finish'), update_state_task_path(task,state:'finish'), method: 'patch' if task.may_finish?%>
         </td>
         <td><%= I18n.t("enums.task.priority.#{task.priority}")%></td>
-        <td>
-          <%= link_to t('tasks.link.edit'), edit_task_path(task),class:"btn btn-outline-success" %>
-          <%= link_to t('tasks.link.delete'),task_path(task), method:'delete', class:"btn btn-outline-danger" %>
-        </td>
       </tr>
     <% end %>
   </tbody>

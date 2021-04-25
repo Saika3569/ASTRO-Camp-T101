@@ -1,5 +1,6 @@
 <div class="w-50 mx-auto">
-  <h1> <%= t('users.form.sign_in') %> </h1>
+
+  <h1> <%= t("users.body.#{action_name}")%> </h1>
 
   <%if user.errors.any? %>
   <div class="alert alert-danger" role="alert">
@@ -12,7 +13,11 @@
 <% end %>
 
 
-  <%= form_for user,url: sign_in_users_path do |f| %>
+  <%= form_for user,url: action_name == 'new'? admin_users_path : admin_user_path do |f| %>
+    <div class='mb-3'>
+      <%=f.label :name,t('users.form.name'), class:'form-label' %>
+      <%=f.text_field :name, class:'form-control' %>
+    </div>
     <div class='mb-3'>
       <%=f.label :email,t('users.form.email'), class:'form-label' %>
       <%=f.text_field :email, class:'form-control'%>
@@ -21,13 +26,17 @@
       <%=f.label :password, t('users.form.password'), class:'form-label' %>
       <%=f.password_field :password, class:'form-control' %>
     </div>
+    <div class='mb-3'>
+      <%=f.label :password_confirmation,t('users.form.confirmation_password'), class:'form-label' %>
+      <%=f.password_field :password_confirmation, class:'form-control' %>
+    </div>
     <div>
       <%=f.submit t('tasks.form.submit'), class:'btn btn-outline-primary' %>
     </div>
   <% end %>
 
   <nav class="nav mx-auto w-50">
-    <%= link_to t('tasks.link.back'), root_path , class:"nav-link" %>
+    <%= link_to t('tasks.link.back'), admin_root_path , class:"nav-link" %>
   </nav>
 
 </div>

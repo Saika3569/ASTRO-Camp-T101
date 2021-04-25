@@ -16,3 +16,11 @@ zh-TW:
       notice: "登入成功"
     destroy:
       notice: "登出成功"
+  admin:
+    users:
+      create:
+        notice: "創建完畢"
+      update:
+        notice: "修改完畢"
+      destroy:
+        notice: "刪除完畢"

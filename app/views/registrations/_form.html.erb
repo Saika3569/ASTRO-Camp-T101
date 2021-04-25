@@ -18,12 +18,10 @@
       <%=f.label :name,t('users.form.name'), class:'form-label' %>
       <%=f.text_field :name, class:'form-control' %>
     </div>
-    <% if action_name == 'new' %>
     <div class='mb-3'>
       <%=f.label :email,t('users.form.email'), class:'form-label' %>
       <%=f.text_field :email, class:'form-control'%>
     </div>
-    <% end%>
     <div class='mb-3'>
       <%=f.label :password, t('users.form.password'), class:'form-label' %>
       <%=f.password_field :password, class:'form-control' %>
@@ -37,7 +35,7 @@
     </div>
   <% end %>
 
-  <nav class="nav mx-auto w-25">
+  <nav class="nav mx-auto w-50">
     <%= link_to t('tasks.link.back'), root_path , class:"nav-link" %>
   </nav>
 
