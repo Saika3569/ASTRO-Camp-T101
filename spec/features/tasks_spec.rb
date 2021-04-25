@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.feature "Tasks", type: :feature do
 
-  let!(:user){create(:user)}
+  let(:user){create(:user)}
+  let(:task){create(:task,user_id: user.id)}
 
   before do
     visit sign_in_users_path
@@ -26,17 +27,19 @@ RSpec.feature "Tasks", type: :feature do
   end
 
   context "show a task " do
+
     before do
-      task = create(:task,user_id: user.id)
+      task
       visit root_path
       click_link task.title
     end
+
     it "should be showed" do
       expect(page).to have_content '任務詳細'
-      # expect(page).to have_content task.title
-      # expect(page).to have_content task.content
-      # 這個測試找不到上面創建的task但我使用save_and_open_page打開來看結果是正常的
+      expect(page).to have_content task.title
+      expect(page).to have_content task.content
     end
+
   end
 
   context "edit a task " do
@@ -45,7 +48,7 @@ RSpec.feature "Tasks", type: :feature do
     let(:new_content){Faker::Lorem.paragraph}
 
     before do 
-      task = create(:task,user_id: user.id)
+      task
       visit root_path
       edit_task_with("#edit_task_#{task.id}",new_title,new_content)
     end
@@ -58,7 +61,7 @@ end
 
   context "delete a task " do
     before do
-      task = create(:task,user_id: user.id)
+      task
       visit root_path
       click_link "#{I18n.t('tasks.link.delete')}"
     end
