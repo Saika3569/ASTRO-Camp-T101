@@ -6,3 +6,13 @@ zh-TW:
       notice: "修改任務完畢"
     destroy:
       notice: "刪除任務完畢"
+  registrations:
+    create:
+      notice: "註冊完畢"
+    update:
+      notice: "修改資料完畢"
+  sessions:
+    create:
+      notice: "登入成功"
+    destroy:
+      notice: "登出成功"

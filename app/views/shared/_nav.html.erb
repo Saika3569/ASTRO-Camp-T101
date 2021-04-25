@@ -4,15 +4,32 @@
         <li class="nav-item active">
         <%= link_to t('tasks.link.main'), root_path(order: params[:order], locale: params[:locale]), class: "nav-link" %>
         </li>
-      <li class="nav-item dropdown">
+        <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <%= t('tasks.local') %>
         </a>
-      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         <%= link_to "中文版", { order: params[:order], locale: "zh-TW" }, class: "dropdown-item" %>
         <%= link_to "English", { order: params[:order], locale: "en" }, class: "dropdown-item" %>
-      </div>
-      </li>
-    </ul>
+        </div>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <% if user_sign_in? %>
+          <li class="nav-item">
+            <%= link_to current_user.name ? current_user.name : current_user.email ,edit_users_path, class:'nav-link' %>
+          </li>
+          <li class='nav-item'>
+            <%= link_to t('users.form.sign_out'), sign_out_users_path, method:'delete', class:'nav-link' %>
+          </li>
+        <% else%>
+          <li class='nav-item'>
+            <%= link_to t('users.form.registration'), new_users_path, class:'nav-link' %>
+          </li>
+          <li class='nav-item'>
+            <%= link_to t('users.form.sign_in'), sign_in_users_path, class:'nav-link' %>
+          </li>
+        <% end %>
+      </ul>
     </div>
 </nav>

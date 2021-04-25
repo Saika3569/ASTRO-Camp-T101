@@ -6,3 +6,13 @@ en:
       notice: "Update Task"
     destroy:
       notice: "Delete Task"
+  registrations:
+    create:
+      notice: "Registrations Success"
+    update:
+      notice: "Update Success"
+  sessions:
+    create:
+      notice: "Log in Success"
+    destroy:
+      notice: "Log out Success"

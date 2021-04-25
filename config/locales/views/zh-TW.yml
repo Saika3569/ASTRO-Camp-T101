@@ -6,6 +6,18 @@ zh-TW:
       next: "下一頁 &rsaquo;"
       previous: "&lsaquo; 上一頁"
       truncate: "&hellip;"
+  users:
+    body:
+      new: "新增使用者"
+      edit: "修改使用者"
+    form:
+      name: "暱稱"
+      email: "信箱"
+      password: "密碼"
+      registration: "註冊"
+      sign_in: "登入"
+      sign_out: "登出"
+      confirmation_password: "確認密碼"
   tasks:
     local: "語言"
     show:

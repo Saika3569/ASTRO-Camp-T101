@@ -1,4 +1,16 @@
 en:
+  users:
+    body:
+      new: "New User"
+      edit: "Edit User"
+    form:
+      name: "Name"
+      email: "Email"
+      password: "Password"
+      confirmation_password: "Confirm Password"
+      registration: "Registration"
+      sign_in: "Sign In"
+      sign_out: "Sign Out"
   tasks:
     local: "Language"
     show:

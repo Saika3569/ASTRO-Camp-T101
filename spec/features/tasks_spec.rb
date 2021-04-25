@@ -2,13 +2,19 @@ require 'rails_helper'
 
 RSpec.feature "Tasks", type: :feature do
 
-  let(:task){create(:task)}
   let(:user){create(:user)}
+  let(:task){create(:task,user_id: user.id)}
 
+  before do
+    visit sign_in_users_path
+    fill_in "信箱", with: user.email
+    fill_in "密碼", with: user.password
+    click_button '確認'
+  end
 
   context "create a new task" do
     before do
-      user
+      visit root_path
       create_task_with('#new_task','title','content')
     end
       
@@ -21,24 +27,31 @@ RSpec.feature "Tasks", type: :feature do
   end
 
   context "show a task " do
-    before do
-      visit task_path(task)      
-    end
-    it "should be showed" do
-      expect(page).to have_content(task[:title])
-      expect(page).to have_content(task[:content])
-    end
-  end
-
-  context "edit a task " do
-    let(:new_title){Faker::Lorem.sentence}
-    let(:new_content){Faker::Lorem.paragraph}
 
     before do
       task
-      edit_task_with("#edit_task_#{task.id}",new_title,new_content)
+      visit root_path
+      click_link task.title
     end
 
+    it "should be showed" do
+      expect(page).to have_content '任務詳細'
+      expect(page).to have_content task.title
+      expect(page).to have_content task.content
+    end
+
+  end
+
+  context "edit a task " do
+    
+    let(:new_title){Faker::Lorem.sentence}
+    let(:new_content){Faker::Lorem.paragraph}
+
+    before do 
+      task
+      visit root_path
+      edit_task_with("#edit_task_#{task.id}",new_title,new_content)
+    end
     it "should be edited" do
       expect(page).to have_content("#{I18n.t('tasks.update.notice')}")
       expect(page).to have_content new_title
@@ -62,7 +75,7 @@ end
   context "order by end time" do
     before do
       1.upto(3) do |i|
-        create(:task,title: "title #{i}", end_at: Time.now+ i.day)
+        create(:task,title: "title #{i}", end_at: Time.now+ i.day,user_id:user.id)
       end
       visit root_path
     end
@@ -80,8 +93,8 @@ end
 
   context "order by end priority" do
     before do
-      create(:task,title: "title 1", priority: 0)
-      create(:task,title: "title 2", priority: 1)
+      create(:task,title: "title 1", priority: 0, user_id:user.id)
+      create(:task,title: "title 2", priority: 1, user_id:user.id)
       visit root_path
     end
 
@@ -99,7 +112,7 @@ end
   context "search" do
     before do
       1.upto(3) do |i|
-          create(:task,title: "title#{i}")
+          create(:task,title: "title#{i}",user_id:user.id)
       end
       visit root_path
     end
@@ -132,7 +145,7 @@ private
   end
 
   def edit_task_with(form, title, content)
-    visit edit_task_path(task[:id])
+    click_link '修改'
     within(form) do
       fill_in "#{I18n.t('tasks.form.title')}", with: title
       fill_in "#{I18n.t('tasks.form.content')}", with: content
