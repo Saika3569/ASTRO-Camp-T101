@@ -1,4 +1,8 @@
 en:
+  pundit:
+    default: "You cannot perform this action."
+    delete_self: "Cannot delete self."
+    admin_last: "Cannot delete last admin."
   tasks:
     create:
       notice: "Create Task"

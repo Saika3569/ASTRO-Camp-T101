@@ -11,6 +11,7 @@ zh-TW:
       new: "新增使用者"
       edit: "修改使用者"
       count: "任務數量"
+      admin: "管理者"
     form:
       name: "暱稱"
       email: "信箱"
@@ -19,6 +20,7 @@ zh-TW:
       sign_in: "登入"
       sign_out: "登出"
       confirmation_password: "確認密碼"
+      console: "使用者管理頁面"
   tasks:
     local: "語言"
     show:

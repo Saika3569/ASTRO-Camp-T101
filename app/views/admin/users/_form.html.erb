@@ -13,7 +13,7 @@
 <% end %>
 
 
-  <%= form_for user,url: action_name == 'new'? admin_users_path : admin_user_path do |f| %>
+  <%= form_for [:admin, user] do |f| %>
     <div class='mb-3'>
       <%=f.label :name,t('users.form.name'), class:'form-label' %>
       <%=f.text_field :name, class:'form-control' %>
@@ -29,6 +29,10 @@
     <div class='mb-3'>
       <%=f.label :password_confirmation,t('users.form.confirmation_password'), class:'form-label' %>
       <%=f.password_field :password_confirmation, class:'form-control' %>
+    </div>
+    <div class='mb-3'>
+      <%=f.label :admin, t('users.body.admin'), class:'form-label' %>
+      <%=f.check_box :admin, class:'form-control' %>
     </div>
     <div>
       <%=f.submit t('tasks.form.submit'), class:'btn btn-outline-primary' %>

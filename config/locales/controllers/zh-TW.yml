@@ -1,4 +1,8 @@
 zh-TW:
+  pundit:
+    default: "權限不足訊息無法存取"
+    delete_self: "無法刪除本人帳號"
+    admin_last: "不能刪除最後一個管理員"
   tasks:
     create:
       notice: "新增任務完畢"
