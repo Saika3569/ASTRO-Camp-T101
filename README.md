@@ -1,24 +1,48 @@
-# README
+# 任務管理系統
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## 開發環境
 
-* Ruby version
+* Ruby:2.7.1
+* Rails:6.0.3.5
+* 資料庫:PostgreSQL
+* 部署:Heroku
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Table schema
+User                 
+|users|資料型態|
+|:-:|:-:|
+| name|string|
+|  email | string  |
+|password_digest|string|
+|   admin|boolean   |
+|created_at|datetime|
+|updated_at|datetime|
+Task                 
+|tasks|資料型態|
+|:-:|:-:|
+| title|string|
+|  content | string  |
+|state|string|
+|   start_at|datetime   |
+|   end_at|datetime   |
+|priority|integer|
+|user_id|bigint|
+|state,title,user_id|index|
+|created_at|datetime|
+|updated_at|datetime|
+Tag
+|tags|資料型態|
+|:-:|:-:|
+| name|string|
+|created_at|datetime|
+|updated_at|datetime|
+Tagging
+|tag_id,task_id|bigint|
+|taggings|資料型態|
+|:-:|:-:|
+|tag_id,task_id|index|
+|created_at|datetime|
+|updated_at|datetime|
+## ER圖
+待捕
