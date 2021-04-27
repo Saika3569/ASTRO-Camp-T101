@@ -43,6 +43,8 @@ zh-TW:
       priority: "優先度"
       state: "狀態"
       submit: "確認"
+      tag: "標籤"
+      tag_separated: "用空白間隔"
     link:
       main: "任務系統"
       new: "新增任務"

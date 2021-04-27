@@ -36,6 +36,8 @@ en:
       priority: "Priority"
       state: "State"
       submit: "Submit"
+      tag: "Tag"
+      tag_separated: "Separated by space"
     link:
       main: "Task system"
       new: "New task"
