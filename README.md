@@ -1,5 +1,6 @@
 # 任務管理系統
 
+部署網址: <https://astrocamptask.herokuapp.com>
 
 ## 開發環境
 
@@ -49,3 +50,6 @@ Tagging
 |updated_at|datetime|
 ## ER圖
 待捕
+## 部署方法
+待捕
+
