@@ -12,12 +12,13 @@
 User                 
 |users|資料型態|
 |:-:|:-:|
-| name|string|
-|  email | string  |
+|name|string|
+|email | string  |
 |password_digest|string|
-|   admin|boolean   |
+|admin|boolean   |
 |created_at|datetime|
 |updated_at|datetime|
+
 Task                 
 |tasks|資料型態|
 |:-:|:-:|
@@ -31,16 +32,18 @@ Task
 |state,title,user_id|index|
 |created_at|datetime|
 |updated_at|datetime|
+
 Tag
 |tags|資料型態|
 |:-:|:-:|
 | name|string|
 |created_at|datetime|
 |updated_at|datetime|
+
 Tagging
-|tag_id,task_id|bigint|
 |taggings|資料型態|
 |:-:|:-:|
+|tag_id,task_id|bigint|
 |tag_id,task_id|index|
 |created_at|datetime|
 |updated_at|datetime|
