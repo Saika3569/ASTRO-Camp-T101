@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   include Pundit
   
   before_action :set_locale, :check_session
-
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   
@@ -13,6 +13,9 @@ class ApplicationController < ActionController::Base
   end
 
   private
+  def record_not_found
+    render file: 'public/404.html', status: 404 , layout: false
+  end
 
   def user_not_authorized(e)
     if e.record
