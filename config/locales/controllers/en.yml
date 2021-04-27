@@ -3,6 +3,7 @@ en:
     default: "You cannot perform this action."
     delete_self: "Cannot delete self."
     admin_last: "Cannot delete last admin."
+    admin_atlast: "Admin at last more then one."
   tasks:
     create:
       notice: "Create Task"

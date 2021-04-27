@@ -22,7 +22,15 @@ class UserPolicy < ApplicationPolicy
   end
 
   def update?
-    index?
+    if index?
+      if User.where(admin: true).size == 1
+        raise Pundit::NotAuthorizedError, I18n.t('.pundit.admin_atlast')
+      else
+        true
+      end
+    else
+      false
+    end
   end
   
   def destroy?

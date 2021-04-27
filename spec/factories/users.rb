@@ -11,5 +11,9 @@ FactoryBot.define do
       name { Faker::Games::Zelda.character}
     end
 
+    trait :admin do
+      admin { true }
+    end
+
   end
 end
