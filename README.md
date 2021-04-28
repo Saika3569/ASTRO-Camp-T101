@@ -1,6 +1,7 @@
 # 任務管理系統
 
-部署網址: <https://astrocamptask.herokuapp.com>
+部署網址: <https://astrocamptask.herokuapp.com> 
+管理員帳號: zxcv@gmail.com 密碼:123456
 
 ## 開發環境
 
