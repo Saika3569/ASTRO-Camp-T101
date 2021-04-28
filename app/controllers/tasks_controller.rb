@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   def index
     @q = current_user.tasks.ransack(params[:q])
     @tasks = if params[:tag]
-              Task.tag_with(params[:tag]).page(params[:page]).per(5)
+              current_user.tasks.tag_with(params[:tag]).page(params[:page]).per(5)
               else
               @q.result(distinct: true).includes(:user,:tags).page(params[:page]).per(5)
               end
