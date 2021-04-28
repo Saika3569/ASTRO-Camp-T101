@@ -4,6 +4,7 @@ en:
       new: "New User"
       edit: "Edit User"
       count: "Task Count"
+      admin: "Admin"
     form:
       name: "Name"
       email: "Email"
@@ -12,6 +13,7 @@ en:
       registration: "Registration"
       sign_in: "Sign In"
       sign_out: "Sign Out"
+      console: "User console"
   tasks:
     local: "Language"
     show:
@@ -34,6 +36,8 @@ en:
       priority: "Priority"
       state: "State"
       submit: "Submit"
+      tag: "Tag"
+      tag_separated: "Separated by space"
     link:
       main: "Task system"
       new: "New task"

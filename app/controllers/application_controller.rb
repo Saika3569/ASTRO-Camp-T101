@@ -1,12 +1,29 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
+  include Pundit
   
   before_action :set_locale, :check_session
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
-
+  
 
   def check_session 
     redirect_to sign_in_users_path if not session[:user114514]
+  end
+
+  private
+  def record_not_found
+    render file: 'public/404.html', status: 404 , layout: false
+  end
+
+  def user_not_authorized(e)
+    if e.record
+      flash[:notice] = I18n.t('.pundit.default')
+    else
+      flash[:notice] = e.message
+    end
+    redirect_to request.referrer || root_path 
   end
 
   def set_locale

@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+
 RSpec.feature "Tasks", type: :feature do
 
   let(:user){create(:user)}
@@ -124,7 +125,7 @@ end
     end
 
     it 'search by title' do
-      fill_in '輸入標題搜尋' , with: 'title'
+      fill_in 'q[title_cont]' , with: 'title'
       click_button '搜尋'
       expect(page).to have_content 'title2'
     end

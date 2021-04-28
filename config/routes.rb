@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'tasks#index'
 
+
+
   resource :users, controller: 'registrations', except:[:index, :show, :destroy]
   resource :users, controller: 'sessions', only:[] do
     get :sign_in, action: 'new'
@@ -14,6 +16,9 @@ Rails.application.routes.draw do
   end
 
   resources :tasks do
+    collection do
+      get 'tag/:tag', to: 'tasks#index', as: :tag
+    end
     member do
       patch :update_state
     end

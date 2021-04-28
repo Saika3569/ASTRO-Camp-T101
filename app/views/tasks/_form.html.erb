@@ -31,7 +31,11 @@
     </div>
     <div class='mb-3'>
       <%=f.label :priority, t('tasks.form.priority'), class:'form-label' %>
-      <%=f.select :priority ,Task.priorities.keys.map {|priority| [I18n.t("enums.task.priority.#{priority}"),priority]}, class:'asad' %>
+      <%=f.select :priority ,Task.priorities.keys.map {|priority| [I18n.t("enums.task.priority.#{priority}"),priority]}%>
+    </div>
+    <div class='mb-3'>
+      <%=f.label :tag_list, t('tasks.form.tag'), class:'form-label' %>
+      <%=f.text_field :tag_list, placeholder:t('tasks.form.tag_separated'), class:'form-control' %>
     </div>
     <div>
       <%=f.submit t('tasks.form.submit'), class:'btn btn-outline-primary' %>
