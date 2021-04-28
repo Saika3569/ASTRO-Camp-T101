@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe Task, type: :model do
   describe 'associations' do
     it { should belong_to(:user).class_name('User') }
+    it { should have_many(:tags).class_name('Tag') }
+    it { should have_many(:taggings).class_name('Tagging') }
   end
 
   describe 'validations' do

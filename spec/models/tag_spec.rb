@@ -1,5 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Tag, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'associations' do
+    it { should have_many(:tasks).class_name('Task') }
+    it { should have_many(:taggings).class_name('Tagging') }
+  end
+
+  describe 'validations' do
+    subject { build(:tag) }
+    it { should validate_presence_of(:name) }
+  end
 end
